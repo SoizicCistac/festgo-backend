@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Finger Food",
+        "description": "Yakitori and Fried Food",
+        "festival": "Hanami"
+    },
+    {
+        "name": "Rolls Bar",
+        "description": "Maki and California Maki",
+        "festival": "Hanami"
+    }, 
+    {
+        "name": "Wok",
+        "description": "Rice and Pad ThaÏ",
+        "festival": "Hanami"
+    },
+    {
+        "name": "Dim sum",
+        "description": "Gyoza and Bao",
+        "festival": "Hanami"
+    },
+    {
+        "name": "Pizza & Grill",
+        "description": "large choice of pizza, hotdog",
+        "festival": "Summerstage Central Park"
+    },
+    {
+        "name": "Grab & Go",
+        "description": "Salads and sushi",
+        "festival": "Summerstage Central Park"
+    },
+    {
+        "name": "Fujiya",
+        "description": "Sushi, Ban mi, ",
+        "festival": "Geekali"
+    },
+    {
+        "name": "Ichiraku",
+        "description": "Ramen, Curry",
+        "festival": "Geekali"
+    },
+    {
+        "name": "Yam Cha / Bubble Tea",
+        "description": "Pao, Tayaki and Bubble tea",
+        "festival": "Geekali"
+    }
+]

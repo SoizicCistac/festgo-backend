@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Hanami",
+        "dateBeginning": "2023-07-01",
+        "dateEnd": "2023-08-31",
+        "location": "Paris",
+        "picture": ""
+    },
+    {
+        "name": "Summerstage Central Park",
+        "dateBeginning": "2023-06-22",
+        "dateEnd": "2023-08-20",
+        "location": "New York",
+        "picture": ""
+    },
+    {
+        "name": "Geekali",
+        "dateBeginning": "2023-08-05",
+        "dateEnd": "2023-08-06",
+        "location": "Saint-Denis, la Réunion",
+        "picture": ""
+    }
+]
