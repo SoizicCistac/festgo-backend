@@ -4,20 +4,20 @@
         "dateBeginning": "2023-07-01",
         "dateEnd": "2023-08-31",
         "location": "Paris",
-        "picture": ""
+        "picture": "https://res.cloudinary.com/soojii/image/upload/v1678789678/fest-go/iqu2bnwccngmhyxndoaw.png"
     },
     {
         "name": "Summerstage Central Park",
         "dateBeginning": "2023-06-22",
         "dateEnd": "2023-08-20",
         "location": "New York",
-        "picture": ""
+        "picture": "https://res.cloudinary.com/soojii/image/upload/v1678789646/fest-go/q3cgc6aromxntt1drkni.png"
     },
     {
         "name": "Geekali",
         "dateBeginning": "2023-08-05",
         "dateEnd": "2023-08-06",
         "location": "Saint-Denis, la Réunion",
-        "picture": ""
+        "picture": "https://res.cloudinary.com/soojii/image/upload/v1678789388/fest-go/iyoz03pfdsbwltvalgtd.png"
     }
 ]

@@ -10,7 +10,7 @@ async function isAuthenticated(req, res, next) {
   try {
     const payload = jsonWebToken.verify(token, process.env.TOKEN_SECRET)
     const user = await User.findById(payload.id)
-    console.log(user)
+    console.log("isAnthenticated user", user)
     req.user = user
 
     // Everything went well go to the next route

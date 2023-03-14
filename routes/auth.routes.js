@@ -44,23 +44,27 @@ router.post('/login', async (req, res, next) => {
     const { email, password } = req.body
 
     if (!email || !password){
-        res.status(400).json({ message: 'Please fill all the fields'})
-        return
+        return res
+                .status(400)
+                .json({ message: 'Please fill all the fields'})
     }
 
     try {
       
       const foundUser = await User.findOne({ email })
-      console.log("back-end auth", foundUser)
         if(!foundUser){
-            res.status(401).json({ message: "User not found"})
-            return
+            return res
+                    .status(401)
+                    .json({ message: "User not found"})
+            
         }
 
         const passwordCorrect = bcrypt.compare(password, foundUser.password)
 
         if(!passwordCorrect){
-            return res.status(401).json({ message: "Wrong credentials"})
+            return res
+                    .status(401)
+                    .json({ message: "Wrong credentials"})
         }
 
         const token = jsonWebToken.sign(
@@ -71,7 +75,9 @@ router.post('/login', async (req, res, next) => {
                 expiresIn: '2h'
             }
         )
-        return res.status(200).json({ token, 
+        return res
+                .status(200)
+                .json({ token, 
             message: 'Token created' })
 
     } catch (error) {
@@ -79,17 +85,17 @@ router.post('/login', async (req, res, next) => {
     }        
 })
 
-router.get('/profile', isAuthenticated, async (req, res, next) => {
-    res.json(req.user)
-})
+router.get('/verify', isAuthenticated, (req, res, next) => {
+  res.json(req.user)
+  });
 
 //  route log out!!!!!
-router.get('/logout', (req, res, next) => {
-    req.session.destroy((error) => {
-      if (error) {
-        return next(error)
-      }
-      res.redirect('/login')
-    })
-  })
+// router.get('/logout', (req, res, next) => {
+//     req.session.destroy((error) => {
+//       if (error) {
+//         return next(error)
+//       }
+//       res.redirect('/login')
+//     })
+//   })
 module.exports = router
