@@ -2,46 +2,189 @@
     {
         "name": "Finger Food",
         "description": "Yakitori and Fried Food",
-        "festival": "Hanami"
+        "festival": "Hanami",
+        "products": [
+            {
+                "name": "Yakitori Chicken Teriyaki",
+                "price": 5.5
+            },
+            {
+                "name": "Yakitori Chicken Satay",
+                "price": 5.5
+            },
+            {
+                "name": "Yakitori Beef-Cheese",
+                "price": 6
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Rolls Bar",
         "description": "Maki and California Maki",
-        "festival": "Hanami"
+        "festival": "Hanami",
+        "products": [
+            {
+                "name": "Maki Cheese Cucumber",
+                "price": 4.5
+            },
+            {
+                "name": "Maki Salmon",
+                "price": 5.5
+            },
+            {
+                "name": "Maki Tuna",
+                "price": 5.5
+            }
+        ],
+        "standType": "default"
     }, 
     {
         "name": "Wok",
         "description": "Rice and Pad ThaÏ",
-        "festival": "Hanami"
+        "festival": "Hanami",
+        "products": [
+            {
+                "name": "Teriyaki Noodles",
+                "price": 13
+            },
+            {
+                "name": "Pad Thaï",
+                "price": 13
+            },
+            {
+                "name": "Rice",
+                "price": 4
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Dim sum",
         "description": "Gyoza and Bao",
-        "festival": "Hanami"
+        "festival": "Hanami",
+        "products": [
+            {
+                "name": "Shrimp",
+                "price": 6
+            },
+            {
+                "name": "Shrimp Gyoza",
+                "price": 6
+            },
+            {
+                "name": "Pork Bao",
+                "price": 4.5
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Pizza & Grill",
         "description": "large choice of pizza, hotdog",
-        "festival": "Summerstage Central Park"
+        "festival": "Summerstage Central Park",
+        "products": [
+            {
+                "name": "Margherita",
+                "price": 14
+            },
+            {
+                "name": "The Summerstage",
+                "price": 15
+            },
+            {
+                "name": "Pepperoni",
+                "price": 15
+            },
+            {
+                "name": "U.S Prime Beef Burger",
+                "price": 14
+            },
+            {
+                "name": "Impossible Burger",
+                "price": 14
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Grab & Go",
         "description": "Salads and sushi",
-        "festival": "Summerstage Central Park"
+        "festival": "Summerstage Central Park",
+        "products": [
+            {
+                "name": "Beet & Arugula Salad",
+                "price": 10.5
+            },
+            {
+                "name": "Chicken Caesar Wrap",
+                "price": 9.5
+            },
+            {
+                "name": "Vegetable sushi",
+                "price": 15
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Fujiya",
-        "description": "Sushi, Ban mi, ",
-        "festival": "Geekali"
+        "description": "Sushi, Ban mhi",
+        "festival": "Geekali",
+        "products": [
+            {
+                "name": "Ban Mhi",
+                "price": 5
+            },
+            {
+                "name": "Sushi",
+                "price": 10
+            },
+            {
+                "name": "Chocolate mousse",
+                "price": 3
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Ichiraku",
         "description": "Ramen, Curry",
-        "festival": "Geekali"
+        "festival": "Geekali",
+        "products": [
+            {
+                "name": "Ramen",
+                "price": 10
+            },
+            {
+                "name": "Bo Bun",
+                "price": 12
+            },
+            {
+                "name": "Chicken Curry",
+                "price": 12
+            }
+        ],
+        "standType": "default"
     },
     {
         "name": "Yam Cha / Bubble Tea",
         "description": "Pao, Tayaki and Bubble tea",
-        "festival": "Geekali"
+        "festival": "Geekali",
+        "products": [
+            {
+                "name": "Bubble Tea",
+                "price": 4
+            },
+            {
+                "name": "Coke",
+                "price": 4
+            },
+            {
+                "name": "Sparkling water",
+                "price": 3
+            }
+        ],
+        "standType": "default"
     }
 ]

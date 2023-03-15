@@ -15,6 +15,25 @@ const foodStandSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Festival",
         required: true
+    },
+    products : [
+      {
+        name: String,
+        price: Number
+      }
+    ],
+    standType: {
+      type: String,
+      enum: [
+        'pizza',
+        'burger',
+        'drinks',
+        'default',
+        'sushi',
+        'salads',
+        'yakitori',
+        'noodles'
+      ]
     }
   },
   {

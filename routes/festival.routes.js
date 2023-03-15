@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const Festival = require("./../models/Festival.model")
 const fileUpload = require('./../config/cloudinary.config')
-const isAdmin = require('./../middlewares/isAdmin')
 
 // routes are prefixed by /api/festivals
 
@@ -29,7 +28,6 @@ router.post("/images", fileUpload.single('picture'), (req, res, next) => {
   });
 
 router.post('/', async(req, res, next) => {
-    // res.locals.isAdmin = true;
 
     try {
         const { name, dateBeginning, dateEnd, location, picture } = req.body
@@ -42,8 +40,6 @@ router.post('/', async(req, res, next) => {
 })
 
 router.patch('/:id', async(req, res, next) => {
-    // res.locals.isAdmin = true;
-
     try {
         const { id } = req.params
         console.log("id", id)
@@ -66,8 +62,6 @@ router.patch('/:id', async(req, res, next) => {
 })
 
 router.delete('/:id', async(req, res, next) => {
-    // res.locals.isAdmin = true;
-
     try {
         await Festival.findByIdAndDelete(req.params.id)
         res.sendStatus(204)

@@ -24,8 +24,8 @@ router.get('/:id', async(req, res, next) => {
 
 router.post('/', async(req, res, next) => {
     try {
-        const { name, description, festival } = req.body
-        const createdFoodStand = await FoodStand.create({name, description, festival})
+        const { name, description, festival, standType } = req.body
+        const createdFoodStand = await FoodStand.create({name, description, festival, standType})
         res.status(201).json(createdFoodStand)
     } catch (error) {
         next(error)
@@ -35,11 +35,11 @@ router.post('/', async(req, res, next) => {
 router.patch('/:id', async(req, res, next) => {
     try {
         const { id } = req.params
-        const { name, description } = req.body
+        const { name, description, standType } = req.body
 
         const updatedFoodStand = await FoodStand.findByIdAndUpdate(
             id,
-            { name, description },
+            { name, description, standType },
             { new: true}
         )
         res.status(202).json(updatedFoodStand)
