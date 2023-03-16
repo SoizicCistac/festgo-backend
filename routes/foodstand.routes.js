@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const FoodStand = require("./../models/FoodStand.model")
-const Festival = require("./../models/Festival.model")
+const Festival = require("./../models/Festival.model");
+const isAuthenticated = require("../middlewares/isAuthenticated");
+const isAdmin = require("../middlewares/isAdmin");
 
 // routes are prefixed by /api/stand
 
@@ -25,7 +27,7 @@ router.get('/:id', async(req, res, next) => {
 })
 
 // add a food stand to a festival
-router.post('/', async(req, res, next) => {
+router.post('/', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         const { name, description, festival, standType } = req.body
         const createdFoodStand = await FoodStand.create({name, description, festival, standType})
@@ -36,7 +38,7 @@ router.post('/', async(req, res, next) => {
 })
 
 // update a food stand
-router.patch('/:id', async(req, res, next) => {
+router.patch('/:id', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         const { id } = req.params
         const { name, description, standType } = req.body
@@ -53,7 +55,7 @@ router.patch('/:id', async(req, res, next) => {
 })
 
 // add a product to a stand
-router.patch('/:id/addProduct', async(req, res, next) => {
+router.patch('/:id/addProduct', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         const { id } = req.params
         const { name, price } = req.body
@@ -71,7 +73,7 @@ router.patch('/:id/addProduct', async(req, res, next) => {
 })
 
 // delete a stand
-router.delete('/:id', async(req, res, next) => {
+router.delete('/:id', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         await FoodStand.findByIdAndDelete(req.params.id)
         res.sendStatus(204)

@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Festival = require("./../models/Festival.model")
-const fileUpload = require('./../config/cloudinary.config')
+const fileUpload = require('./../config/cloudinary.config');
+const isAdmin = require("../middlewares/isAdmin");
+const isAuthenticated = require("../middlewares/isAuthenticated");
 
 // routes are prefixed by /api/festivals
 
@@ -25,13 +27,13 @@ router.get('/:id', async(req, res, next) => {
 })
 
 // send a picture
-router.post("/images", fileUpload.single('picture'), (req, res, next) => {
+router.post("/images", isAuthenticated, isAdmin, fileUpload.single('picture'), (req, res, next) => {
     console.log(req.file.path);
     res.json({ picture: req.file.path });
   });
 
 //   add a festival
-router.post('/', async(req, res, next) => {
+router.post('/', isAuthenticated, isAdmin, async(req, res, next) => {
 
     try {
         const { name, dateBeginning, dateEnd, location, picture } = req.body
@@ -44,7 +46,7 @@ router.post('/', async(req, res, next) => {
 })
 
 // update a festival
-router.patch('/:id', async(req, res, next) => {
+router.patch('/:id', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         const { id } = req.params
         console.log("id", id)
@@ -67,7 +69,7 @@ router.patch('/:id', async(req, res, next) => {
 })
 
 // delete a festival
-router.delete('/:id', async(req, res, next) => {
+router.delete('/:id', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         await Festival.findByIdAndDelete(req.params.id)
         res.sendStatus(204)

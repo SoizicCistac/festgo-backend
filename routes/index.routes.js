@@ -6,6 +6,8 @@ router.get("/", (req, res, next) => {
 
 
 router.use('/auth', require('./auth.routes'))
+
+
 router.use('/festivals', require('./festival.routes'))
 router.use('/stand', require('./foodstand.routes'))
 
