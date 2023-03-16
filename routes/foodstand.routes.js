@@ -4,6 +4,7 @@ const Festival = require("./../models/Festival.model")
 
 // routes are prefixed by /api/stand
 
+// get all the food stands
 router.get('/', async(req, res, next) => {
     try {
         const foodstands = await FoodStand.find()
@@ -13,6 +14,7 @@ router.get('/', async(req, res, next) => {
     }
 })
 
+// get one food stand
 router.get('/:id', async(req, res, next) => {
     try {
        const oneFoodStand = await FoodStand.findById(req.params.id).populate('festival')
@@ -22,6 +24,7 @@ router.get('/:id', async(req, res, next) => {
     }
 })
 
+// add a food stand to a festival
 router.post('/', async(req, res, next) => {
     try {
         const { name, description, festival, standType } = req.body
@@ -32,6 +35,7 @@ router.post('/', async(req, res, next) => {
     }
 })
 
+// update a food stand
 router.patch('/:id', async(req, res, next) => {
     try {
         const { id } = req.params
@@ -48,6 +52,25 @@ router.patch('/:id', async(req, res, next) => {
     }
 })
 
+// add a product to a stand
+router.patch('/:id/addProduct', async(req, res, next) => {
+    try {
+        const { id } = req.params
+        const { name, price } = req.body
+        console.log("add product back-end", req.body)
+
+        const addProduct = await FoodStand.updateOne(
+            {_id : id},
+            {$push : {products: { name, price }}},
+        ).populate("products")
+        console.log(addProduct)
+        res.status(202).json(addProduct)
+    } catch (error) {
+        next(error)
+    }
+})
+
+// delete a stand
 router.delete('/:id', async(req, res, next) => {
     try {
         await FoodStand.findByIdAndDelete(req.params.id)

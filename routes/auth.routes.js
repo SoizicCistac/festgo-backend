@@ -89,13 +89,4 @@ router.get('/verify', isAuthenticated, (req, res, next) => {
   res.json(req.user)
   });
 
-//  route log out!!!!!
-// router.get('/logout', (req, res, next) => {
-//     req.session.destroy((error) => {
-//       if (error) {
-//         return next(error)
-//       }
-//       res.redirect('/login')
-//     })
-//   })
 module.exports = router

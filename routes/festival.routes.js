@@ -4,6 +4,7 @@ const fileUpload = require('./../config/cloudinary.config')
 
 // routes are prefixed by /api/festivals
 
+// get all the festivals
 router.get('/', async(req, res, next) => {
     try {
         const festivals = await Festival.find()
@@ -13,6 +14,7 @@ router.get('/', async(req, res, next) => {
     }
 })
 
+// get one festival
 router.get('/:id', async(req, res, next) => {
     try {
        const oneFestival = await Festival.findById(req.params.id)
@@ -22,11 +24,13 @@ router.get('/:id', async(req, res, next) => {
     }
 })
 
+// send a picture
 router.post("/images", fileUpload.single('picture'), (req, res, next) => {
     console.log(req.file.path);
     res.json({ picture: req.file.path });
   });
 
+//   add a festival
 router.post('/', async(req, res, next) => {
 
     try {
@@ -39,6 +43,7 @@ router.post('/', async(req, res, next) => {
     }
 })
 
+// update a festival
 router.patch('/:id', async(req, res, next) => {
     try {
         const { id } = req.params
@@ -61,6 +66,7 @@ router.patch('/:id', async(req, res, next) => {
     }
 })
 
+// delete a festival
 router.delete('/:id', async(req, res, next) => {
     try {
         await Festival.findByIdAndDelete(req.params.id)
