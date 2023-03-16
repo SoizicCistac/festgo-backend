@@ -3,7 +3,6 @@
 
 async function isAdmin(req, res, next) {
   try {
-    console.log("------------------------------------", req.user)
     if (req.user.userType === "admin") {
         next()
     }

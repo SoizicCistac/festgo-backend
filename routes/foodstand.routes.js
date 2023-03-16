@@ -9,7 +9,7 @@ const isAdmin = require("../middlewares/isAdmin");
 // get all the food stands
 router.get('/', async(req, res, next) => {
     try {
-        const foodstands = await FoodStand.find()
+        const foodstands = await FoodStand.find().sort({name: 1})
         res.json(foodstands)
     } catch (error) {
         next(error)
@@ -59,13 +59,11 @@ router.patch('/:id/addProduct', isAuthenticated, isAdmin, async(req, res, next) 
     try {
         const { id } = req.params
         const { name, price } = req.body
-        console.log("add product back-end", req.body)
 
         const addProduct = await FoodStand.updateOne(
             {_id : id},
             {$push : {products: { name, price }}},
         ).populate("products")
-        console.log(addProduct)
         res.status(202).json(addProduct)
     } catch (error) {
         next(error)

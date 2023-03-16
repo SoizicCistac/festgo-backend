@@ -9,7 +9,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 // get all the festivals
 router.get('/', async(req, res, next) => {
     try {
-        const festivals = await Festival.find()
+        const festivals = await Festival.find().sort({dateBeginning: 1})
         res.json(festivals)
     } catch (error) {
         next(error)
@@ -28,7 +28,6 @@ router.get('/:id', async(req, res, next) => {
 
 // send a picture
 router.post("/images", isAuthenticated, isAdmin, fileUpload.single('picture'), (req, res, next) => {
-    console.log(req.file.path);
     res.json({ picture: req.file.path });
   });
 
@@ -49,7 +48,6 @@ router.post('/', isAuthenticated, isAdmin, async(req, res, next) => {
 router.patch('/:id', isAuthenticated, isAdmin, async(req, res, next) => {
     try {
         const { id } = req.params
-        console.log("id", id)
         const { name, dateBeginning, dateEnd, location, picture } = req.body
         const updatedFestival = await Festival.findByIdAndUpdate(
             id,

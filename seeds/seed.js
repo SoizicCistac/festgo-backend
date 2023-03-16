@@ -21,7 +21,6 @@ mongoose
             await FoodStand.deleteMany()
 
             for (const foodstand of foodStands) {
-                console.log(foodstand.festival)
                 const oneFestival = await Festival.findOne({name: foodstand.festival})
                 foodstand.festival = oneFestival._id
             }

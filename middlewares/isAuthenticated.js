@@ -11,7 +11,6 @@ async function isAuthenticated(req, res, next) {
     const payload = jsonWebToken.verify(token, process.env.TOKEN_SECRET)
     const user = await User.findById(payload.id)
     req.user = user
-    // console.log(user)
 
     // Everything went well go to the next route
     next()
